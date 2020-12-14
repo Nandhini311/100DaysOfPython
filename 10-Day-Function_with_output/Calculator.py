@@ -1,4 +1,6 @@
 import art
+from replit import clear
+
 print(art.logo)
 
 #addition
@@ -24,13 +26,28 @@ operations = {
   '/': divide
 }
 
-num1 = int(input("What is the frist number: "))
-num2 = int(input("What is the second number: "))
-for i in operations:
-  print(i)
 
-symbol = input("Pick an operation from the list ")
-calculation_function = operations[symbol]
-answer = calculation_function(num1,num2)
+def calculator():
+  num1 = int(input("What is the frist number: "))
+  for i in operations: 
+    print(i)
 
-print(f'{num1} {symbol} {num2} = {answer} ')
+  not_continue = False
+  while not not_continue:
+    symbol = input("Pick an operation from the list ")
+    num2 = int(input("What is the second number: "))
+    
+    calculation_function = operations[symbol]
+    answer = calculation_function(num1,num2)
+    
+    print(f'{num1} {symbol} {num2} = {answer} ')
+    if (input("Type 'y' to continue calculation with {answer} and 'n' to start new calculation")=='y'): 
+      not_continue = False
+      num1=answer()
+    else:
+      not_continue = True
+      clear()
+      calculator()
+
+
+calculator()
