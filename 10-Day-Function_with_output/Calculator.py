@@ -28,14 +28,14 @@ operations = {
 
 
 def calculator():
-  num1 = int(input("What is the frist number: "))
+  num1 = float(input("What is the frist number: "))
   for i in operations: 
     print(i)
 
   not_continue = False
   while not not_continue:
     symbol = input("Pick an operation from the list ")
-    num2 = int(input("What is the second number: "))
+    num2 = float(input("What is the second number: "))
     
     calculation_function = operations[symbol]
     answer = calculation_function(num1,num2)
